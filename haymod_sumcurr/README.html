@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1404.47">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Courier; color: #000000; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Courier; color: #008000; -webkit-text-stroke: #008000}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Courier; color: #018000; -webkit-text-stroke: #018000}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Courier; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Courier; -webkit-text-stroke: #000000}
+    span.s1 {font-kerning: none}
+    span.s2 {text-decoration: underline ; font-kerning: none; color: #0000ee; -webkit-text-stroke: 0px #0000ee}
+    span.s3 {font-kerning: none; color: #000000}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">Python/NEURON and MATLAB scripts for running single-cell simulations of layer V pyramidal cells while recording the trans-membrane currents</span></p>
+<p class="p1"><span class="s1">with a high spatial resolution.</span></p>
+<p class="p1"><span class="s1">Tuomo Maki-Marttunen, 2014-2016</span></p>
+<p class="p1"><span class="s1">CC BY 3.0</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1">HOC-commands for the simulations based on scripts by E. Hay (Hay et al. 2011, Models of Neocortical Layer</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                              </span>5b Pyramidal Cells Capturing a Wide Range of<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                              </span>Dendritic and Perisomatic Active Properties,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                              </span>PLoS Comput Biol 7:e1002107)</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1">Files included:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>models/TTC.hoc <span class="Apple-converted-space">                                      </span>#HOC-file for simulations with reduced-morphology model and in vivo-like</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                      </span># synaptic inputs</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>CaDynamics_E2.mod<span class="Apple-converted-space">                                    </span>#mod-file for Ca2+ dynamics. From <a href="http://modeldb.yale.edu/139653"><span class="s2">http://modeldb.yale.edu/139653</span></a></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>Ca_HVA.mod <span class="Apple-converted-space">                                          </span>#mod-file for HVA Ca2+ currents. From <a href="http://modeldb.yale.edu/139653"><span class="s2">http://modeldb.yale.edu/139653</span></a></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>Ca_LVAst.mod <span class="Apple-converted-space">                                        </span>#mod-file for LVA Ca2+ currents. From <a href="http://modeldb.yale.edu/139653"><span class="s2">http://modeldb.yale.edu/139653</span></a></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>Ih.mod <span class="Apple-converted-space">                                              </span>#mod-file for HCN currents. From <a href="http://modeldb.yale.edu/139653"><span class="s2">http://modeldb.yale.edu/139653</span></a></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>Im.mod <span class="Apple-converted-space">                                              </span>#mod-file for Muscarinic K+ currents. From <a href="http://modeldb.yale.edu/139653"><span class="s2">http://modeldb.yale.edu/139653</span></a></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>K_Pst.mod<span class="Apple-converted-space">                                            </span>#mod-file for Persistent K+ currents. From <a href="http://modeldb.yale.edu/139653"><span class="s2">http://modeldb.yale.edu/139653</span></a></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>K_Tst.mod<span class="Apple-converted-space">                                            </span>#mod-file for Transient K+ currents. From <a href="http://modeldb.yale.edu/139653"><span class="s2">http://modeldb.yale.edu/139653</span></a></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>NaTa_t.mod <span class="Apple-converted-space">                                          </span>#mod-file for Transient Na+ currents. From <a href="http://modeldb.yale.edu/139653"><span class="s2">http://modeldb.yale.edu/139653</span></a></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>Nap_Et2.mod<span class="Apple-converted-space">                                          </span>#mod-file for Persisent Na+ currents. From <a href="http://modeldb.yale.edu/139653"><span class="s2">http://modeldb.yale.edu/139653</span></a></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>SK_E2.mod<span class="Apple-converted-space">                                            </span>#mod-file for SK currents. From <a href="http://modeldb.yale.edu/139653"><span class="s2">http://modeldb.yale.edu/139653</span></a></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>SKv3_1.mod <span class="Apple-converted-space">                                          </span>#mod-file for Kv3.1 currents. From <a href="http://modeldb.yale.edu/139653"><span class="s2">http://modeldb.yale.edu/139653</span></a></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>calcsumcurr_manyareagsynmediumtau_parts_fixeddt.py <span class="Apple-converted-space">  </span>#Python script for running the simulations</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>combinemattomat_fixeddt.m<span class="Apple-converted-space">                            </span>#MATLAB script for combining fifty 200-ms runs to a single 10-second run</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>sumrepetitions_seed.m<span class="Apple-converted-space">                                </span>#MATLAB script for summing up ionic currents from ten 10-second individual</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                      </span># neuron simulations into a single data file</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>interpolate.m<span class="Apple-converted-space">                                        </span>#MATLAB function for interpolating 1-D signal</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>interpolate_multidim.m <span class="Apple-converted-space">                              </span>#MATLAB function for interpolating multidimensional signal</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1">To perform a single 10000-ms simulation, run the following command:</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p2"><span class="s1"><br>
+</span></p>
+<p class="p2"><span class="s1">nrnivmodl <span class="Apple-converted-space">                                                                                          </span>#Compile the NEURON mechanisms</span></p>
+<p class="p2"><span class="s1">SEED=1<span class="Apple-converted-space">                                                                                              </span>#In this example, only seed 1 performed</span></p>
+<p class="p2"><span class="s1">python calcsumcurr_manyareagsynmediumtau_parts_fixeddt.py 20 0.025 0.000042 10000 10000 2 $SEED 200 #Run a single pyramidal cell simulation</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                                                                                                    </span>#with 20 segments/compartment,</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                                                                                                    </span>#0.025ms time step, 0.042 nS synaptic</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                                                                                                    </span>#conductance, 10000 ms biological</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                                                                                                    </span>#time, with 10000 synapses of type 2</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                                                                                                    </span>#(scattered on both apical and</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                                                                                                    </span>#basal dendrites), random number seed 1,<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                                                                                                    </span>#and performing the simulation</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                                                                                                    </span>#in units of 200ms</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1">The script saves the amounts of each current type exiting the cell into the 13 extracellular compartments. The bordering extracellular</span></p>
+<p class="p1"><span class="s1">compartments do not contain any membrane segments, and thus 13 compartments are enough. The results are saved into MATLAB files</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1">currsums_parts_10000areagsynsmediumtau_fixeddt_type2_amp4.2e-5_tstop10000_nseg20_dt0.025_seed${SEED}_sim0x200.mat</span></p>
+<p class="p1"><span class="s1">currsums_parts_10000areagsynsmediumtau_fixeddt_type2_amp4.2e-5_tstop10000_nseg20_dt0.025_seed${SEED}_sim1x200.mat</span></p>
+<p class="p1"><span class="s1">...</span></p>
+<p class="p1"><span class="s1">currsums_parts_10000areagsynsmediumtau_fixeddt_type2_amp4.2e-5_tstop10000_nseg20_dt0.025_seed${SEED}_sim49x200.mat</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1">To combine the obtained files, run:</span></p>
+<p class="p2"><span class="s1"><br>
+</span></p>
+<p class="p2"><span class="s1">matlab -r "myseed=$SEED; combinemattomat_fixeddt; exit"</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1">As a result, we have the file</span></p>
+<p class="p1"><span class="s1">currsums_parts_10000areagsynsmediumtau_fixeddt_type2_amp4.2e-05_tstop10000.0_nseg20_dt0.025_seed${SEED}_comb200.0.mat.</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1">These commands should be repeated for SEED 1...10 and then the resulting current data can be summed up with the following script:</span></p>
+<p class="p2"><span class="s1"><br>
+</span></p>
+<p class="p2"><span class="s1">matlab -r "synloctype=2; iseed=1; sumrepetitions_seed; exit"</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1">As a result, the file currsums_parts_10000areagsynsmediumtau_fixeddt_type2_amp4.2e-05_tstop10000.0_nseg20_dt0.025_seed1_comb_summed.mat</span></p>
+<p class="p1"><span class="s1">is created. It contains the summed currents of 10 L5PCs in the 13 extracellular compartments for the biological time from 0 to 10000 ms.</span></p>
+<p class="p1"><span class="s1">In order to give longer current sum data to the diffusion simulator, the whole procedure should be repeated e.g. for SEED 11...100.</span></p>
+<p class="p1"><span class="s1">(The script sumrepetitions_seed.m combines seeds 1...10 to be the a "iseed" number 1, seeds 11...20 to be the "iseed" number 2, etc.)</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1">These files can finally be combined using the script:</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p3"><span class="s1">matlab -r "summondata; exit"</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p5"><span class="s1">This will save all necessary data in a file revdata.mat which will be used for the extracellular simulations. When combining the data (see summondata.m), the first 1600 ms of each run are ignored due to a possible delay in transition to a steady state spiking dynamics.</span><span class="s3"> <br>
+</span></p>
+</body>
+</html>
